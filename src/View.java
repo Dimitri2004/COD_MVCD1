@@ -46,11 +46,8 @@ public class View {
                     // Mostrar la velocidad de cada coche
                     break;
                 case 2:
-                     Controller2.visualizarVelocida( "SBC 1234");
-                    // Mostrar la velocidad del coche1
-                    String matricula = Model.parking.get(0).matricula;
-                    int velocidad = Model.getVelocidad(matricula);
-                    System.out.println("La velocidad del coche " + matricula + " es: " + velocidad + "km/hr");
+
+                    Controller2.visualizarVelocida( "SBC 1234");
                     break;
                 case 3:
                     System.out.println("Introduce la velocidad a aumentar(1) o reducir(2)");
@@ -80,9 +77,9 @@ public class View {
     }
 
     public static boolean muestraVelocidad( String matricula, int velocidad) {
-        // asigar velocidad del coche
-        Coche aux = Model.getCoche(matricula);
-        aux.velocidad= velocidad;
+        //muestra velocidad
+        System.out.println("La velocidad del coche con matricula " + matricula + " es: " + velocidad + "km/hr");
+
         return true;
     }
 }
