@@ -1,14 +1,17 @@
 ```mermaid
 sequenceDiagram 
-    participant User
-    participant WebApp
-    participant API
-    participant Database
+    participant Model
+    participant Controller
+    participant View
 
-    User->>WebApp: Request to view data
-    WebApp->>API: Fetch data from API
-    API->>Database: Query for data
-    Database-->>API: Return data
-    API-->>WebApp: Send data to web app
-    WebApp-->>User: Display data
+    Controller->>Model: Model.crearCoche()
+    activate Model
+    Model->>Controller: coche
+    deactivate Model
+    Controller->>+View: Controller2.visualizarCoche(coche)
+    activate View
+    View->>-View:Mostrando velocidad
+    View-->>Controller: bool
+    deactivate View
+
 ```
