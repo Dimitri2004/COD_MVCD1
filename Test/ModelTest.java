@@ -12,7 +12,6 @@ public class ModelTest extends TestCase {
     @DisplayName("pedir coche con crearcoche")
     @AfterEach
     public void testcrearCoche() {
-
         Coche coche = Model.crearCoche("mazda", "1234ABC");
         assertNotNull(coche);
         assertEquals("mazda", coche.modelo);

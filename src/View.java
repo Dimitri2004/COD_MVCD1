@@ -1,6 +1,22 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//JavaDoc
+/**
+ * @author Grupo 1
+ * @version 1.0
+ * @since 2025-5-25
+ * @see Model
+ * @see Coche
+ * @see Controller
+ * @see Controller2
+ * @see View
+ */
+
+
+
+
+
 /**
  * Clase encargada de la interacción con el usuario
  */
@@ -22,32 +38,32 @@ public class View {
         while (op != 4) {
             switch (op) {
                 case 1:
-                     Model.parking= new ArrayList<>();
-                     Controller2.Inicio();
+                    Controller2.Inicio();
                     for (Coche e : Model.parking) {
                         // Mostrar la velocidad de cada coche
                         System.out.println(e.matricula + ": " + e.velocidad + "km/hr");
                     }
                     // Mostrar la velocidad de cada coche
                     break;
-
                 case 2:
-                    Controller2.Inicio();
-                    int velocidad=Model.getVelocidad(Model.parking.toString());
-
+                     Controller2.visualizarVelocida( "SBC 1234");
+                    // Mostrar la velocidad del coche1
+                    String matricula = Model.parking.get(0).matricula;
+                    int velocidad = Model.getVelocidad(matricula);
+                    System.out.println("La velocidad del coche " + matricula + " es: " + velocidad + "km/hr");
                     break;
                 case 3:
                     System.out.println("Introduce la velocidad a aumentar(1) o reducir(2)");
                     int op2 = sc.nextInt();
-                    if (  op2 == 1) {
-                        // Aumentar la velocidad
-                        int v1= Model.getVelocidad(Model.parking.getFirst().matricula);
-                        // Cambiar la velocidad
+                    if (op2 == 1) {
+                        //Emplear del controller2 el aumentarVel()
                         Controller2.aumentarVel();
-
-                    } else if ( op2 == 2) {
+                        System.out.println("Velocidad aumentada: " + Model.getVelocidad("SBC 1234"));
+                    } else if (op2 == 2) {
                         // Disminuir la velocidad
-                        Controller2.disminuirVel();
+                        Controller2.disminuirVel() ;
+                        System.out.println("Velocidad disminuida: " + Model.getVelocidad("SBC 1234"));
+
                     }
                     break;
                 default:
@@ -62,8 +78,11 @@ public class View {
         sc.close();
 
     }
-    /*
-    public static boolean muestraVelocidad(String matricula, Integer v){
-        System.out.println(matricula + ": " + v + "km/hr");
-        return true;*/
+
+    public static boolean muestraVelocidad( String matricula, int velocidad) {
+        // asigar velocidad del coche
+        Coche aux = Model.getCoche(matricula);
+        aux.velocidad= velocidad;
+        return true;
     }
+}
