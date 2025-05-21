@@ -22,6 +22,5 @@ sequenceDiagram
     View->>-View: Mostrando velocidad
     deactivate View
     
-    
 
 ```
