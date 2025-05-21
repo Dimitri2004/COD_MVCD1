@@ -68,6 +68,7 @@ public class View {
 
             }
             System.out.println("Elige opcion");
+
             op = sc.nextInt();
 
         }
